@@ -1,0 +1,35 @@
+name: WPOnion Downloader
+
+on:
+  issue_comment:
+    types: [created, deleted]
+  schedule:
+    - cron: "0 * * * *"
+  push:
+    branches:
+      - master
+
+jobs:
+  Downloader:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetching Repository
+        uses: actions/checkout@v1
+      - name: Installing Composer
+        uses: nanasess/composer-installer-action@master
+      - name : Removing Old WPOnion
+        run:  ls -lah && rm -rf wponion/
+      - name: Downloading WPOnion
+        run:  git clone https://github.com/wponion/wponion
+      - name: Installing Packages For WPOnion
+        run:  cd wponion && ls -lah && composer install --no-dev
+      - name: Updating Current Repo
+        run: |
+            rm -rf wponion/.git
+            git config --global user.email "wponion@gmail.com"
+            git config --global user.name "WPOnion Downloader"
+            git add -A
+            git commit -m "Latest WPOnion Downloaded"
+            git push "https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY" HEAD:master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
