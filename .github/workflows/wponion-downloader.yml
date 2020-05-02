@@ -20,6 +20,7 @@ jobs:
       - name: WPOnion Downloader
         run: |
           echo "##[group] Removing Old Source"
+          rm -rf wponion/
           rm -rf stable/ 
           rm -rf development/
           echo "##[endgroup]"
@@ -46,6 +47,8 @@ jobs:
       - name: Updating Current Repo
         run: |
             rm -rf wponion/.git
+            rm -rf stable/.git
+            rm -rf development/.git
             git config --global user.email "wponion@gmail.com"
             git config --global user.name "WPOnion Downloader"
             git add -A
