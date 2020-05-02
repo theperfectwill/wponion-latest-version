@@ -32,11 +32,12 @@ jobs:
           cd stable && ls -lah && composer install --no-dev && cd ../
           echo "##[endgroup]"
 
-          echo " "
-          echo " "
+          echo "
+          
+          "
 
           echo "##[group] WPOnion Development Clone"
-          git clone --brach development https://github.com/wponion/wponion development
+          git clone --branch development https://github.com/wponion/wponion development
           echo "##[endgroup]"
 
           echo "##[group] Installing Required Libs"
