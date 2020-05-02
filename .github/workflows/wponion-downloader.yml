@@ -18,7 +18,30 @@ jobs:
       - name: Installing Composer
         uses: nanasess/composer-installer-action@master
       - name: WPOnion Downloader
-        run: ./downloader.sh
+        run: |
+          echo "##[group] Removing Old Source"
+          rm -rf stable/ 
+          rm -rf development/
+          echo "##[endgroup]"
+
+          echo "##[group] WPOnion Stable Clone"
+          git clone https://github.com/wponion/wponion stable
+          echo "##[endgroup]"
+
+          echo "##[group] Installing Required Libs"
+          cd stable && ls -lah && composer install --no-dev && cd ../
+          echo "##[endgroup]"
+
+          echo " "
+          echo " "
+
+          echo "##[group] WPOnion Development Clone"
+          git clone --brach development https://github.com/wponion/wponion development
+          echo "##[endgroup]"
+
+          echo "##[group] Installing Required Libs"
+          cd development && ls -lah && composer install --no-dev && cd ../
+          echo "##[endgroup]"
       - name: Updating Current Repo
         run: |
             rm -rf wponion/.git
