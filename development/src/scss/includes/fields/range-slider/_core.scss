@@ -1,0 +1,82 @@
+.wponion-element-range_slider {
+	.wponion-range-slider-container {
+		input[type="text"] {
+			width:          55px;
+			margin-left:    15px;
+			text-align:     center;
+			vertical-align: middle;
+		}
+
+		.ui-slider {
+			position:       relative;
+			width:          100%;
+			height:         4px;
+			border:         none;
+			background:     #ddd;
+			border-radius:  2px;
+			display:        inline-block;
+			vertical-align: middle;
+
+			.ui-slider-range {
+				height:        4px;
+				border:        none;
+				background:    #222;
+				border-radius: 2px;
+			}
+
+			.ui-slider-handle {
+				position:      absolute;
+				width:         18px;
+				height:        18px;
+				top:           -7px;
+				margin-left:   -8px;
+				border:        none;
+				background:    #222;
+				border-radius: 2px;
+			}
+
+			&.ui-slider-vertical {
+				height: 100px;
+
+				.ui-slider-range {
+					position: absolute;
+					width:    4px;
+
+					&.ui-slider-range-min {
+						bottom: 0;
+					}
+
+					&.ui-slider-range-max {
+						top:    0;
+						bottom: unset;
+					}
+				}
+
+				.ui-slider-handle {
+					top: unset;
+				}
+			}
+
+			&.ui-slider-horizontal {
+			}
+		}
+
+		.wponion-input-group-wrap {
+			display:        inline-block;
+			vertical-align: middle;
+			margin-left:    15px;
+			margin-right:   0;
+
+			input {
+				margin: 0;
+			}
+		}
+
+	}
+
+	.wponion-range-slider-container .ui-state-active,
+	.wponion-range-slider-container .ui-slider-handle:hover {
+		cursor:     pointer;
+		background: #444;
+	}
+}

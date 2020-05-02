@@ -1,0 +1,140 @@
+[
+    {
+        "name": "varunsridharan/php-autoloader",
+        "version": "2.6",
+        "version_normalized": "2.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/varunsridharan/php-autoloader.git",
+            "reference": "ec9df2b2bfdf5f23c56654c22c288bbefea00ca7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/varunsridharan/php-autoloader/zipball/ec9df2b2bfdf5f23c56654c22c288bbefea00ca7",
+            "reference": "ec9df2b2bfdf5f23c56654c22c288bbefea00ca7",
+            "shasum": ""
+        },
+        "time": "2019-10-04T09:42:21+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Varunsridharan\\PHP\\": "./src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Varun",
+                "email": "varunsridharan23@gmail.com",
+                "homepage": "https://varunsridharan.in",
+                "role": "Developer"
+            }
+        ],
+        "description": "Lightweight PSR-4 PHP Autoloader Class."
+    },
+    {
+        "name": "varunsridharan/wp-conditional-logic",
+        "version": "1.1",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/varunsridharan/wp-conditional-logic.git",
+            "reference": "56a6e973d7804e5594fec51d428f5a8483239bf4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/varunsridharan/wp-conditional-logic/zipball/56a6e973d7804e5594fec51d428f5a8483239bf4",
+            "reference": "56a6e973d7804e5594fec51d428f5a8483239bf4",
+            "shasum": ""
+        },
+        "time": "2019-05-10T15:23:43+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Varunsridharan\\WordPress\\": "./src"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Varun Sridharan",
+                "email": "varunsridharan23@gmail.com",
+                "homepage": "http://varunsridharan.in",
+                "role": "Developer"
+            }
+        ],
+        "description": "Simple WordPress Library To Evaluate / Handle Conditional Logic.",
+        "homepage": "https://github.com/varunsridharan/wp-conditional-logic/"
+    },
+    {
+        "name": "varunsridharan/wp-dependencies",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/varunsridharan/wp-dependencies.git",
+            "reference": "b1514529480223b8cfae5cbc33c7cc9e4ee7420b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/varunsridharan/wp-dependencies/zipball/b1514529480223b8cfae5cbc33c7cc9e4ee7420b",
+            "reference": "b1514529480223b8cfae5cbc33c7cc9e4ee7420b",
+            "shasum": ""
+        },
+        "time": "2019-06-28T11:21:34+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "./src/dependencies.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-3.0-or-later"
+        ],
+        "authors": [
+            {
+                "name": "Varun Sridharan",
+                "email": "varunsridharan23@gmail.com",
+                "homepage": "http://varunsridharan.in",
+                "role": "Developer"
+            }
+        ],
+        "description": "Provides Function To Check if a plugin is active/inactive & function to compare versions.",
+        "homepage": "https://github.com/varunsridharan/wp-dependencies/",
+        "keywords": [
+            "dependencies",
+            "vsp-libs",
+            "wordpress",
+            "wordpress-dependencies",
+            "wordpress-development",
+            "wordpress-library",
+            "wordpress-php-library",
+            "wordpress-plugin",
+            "wordpress-plugin-development",
+            "wordpress-plugin-library",
+            "wordpress-plugins",
+            "wordpress-theme",
+            "wordpress-theme-development",
+            "wordpress-theme-library",
+            "wp",
+            "wp-addon",
+            "wp-dependencies",
+            "wp-library",
+            "wp-plugin",
+            "wp-theme"
+        ]
+    }
+]

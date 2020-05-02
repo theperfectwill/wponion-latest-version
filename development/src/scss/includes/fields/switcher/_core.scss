@@ -1,0 +1,11 @@
+.wponion-element-switcher {
+	.wponion-switcher-labels-container {
+		display: inline-block;
+
+		> div {
+			display:        inline-block;
+			vertical-align: middle;
+			margin-right:   10px;
+		}
+	}
+}
