@@ -6,20 +6,15 @@ use WPOnion\Helper;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
+if ( ! class_exists( '\WPOnion\DB\Query_Types\Image_Sizes' ) ) {
 	/**
-	 * Class Currency_Symbol
+	 * Class Image_Sizes
 	 *
 	 * @package WPOnion\DB\Query_Types
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.4.5.4
 	 */
-	class Currency_Symbol extends WP_Query_Base {
-		/**
-		 * @var bool
-		 */
-		protected $is_customizable = false;
-
+	class Image_Sizes extends WP_Query_Base {
 		/**
 		 * @param array $query_args
 		 *
@@ -37,7 +32,7 @@ if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
 		 * @return array
 		 */
 		public function get_results( $query_args ) {
-			return Helper::get_currency_symbol();
+			return wp_get_additional_image_sizes();
 		}
 
 		/**
@@ -47,17 +42,17 @@ if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
 		 * @return string
 		 */
 		public function default_key( $values, $key ) {
-			return false;
+			return $key;
 		}
 
 		/**
-		 * @param array|object $values WP Query Result.
-		 * @param array|object $key WP Query Result key.
+		 * @param string|array|object $values WP Query Result.
+		 * @param array|object        $key WP Query Result key.
 		 *
 		 * @return string
 		 */
 		public function default_label( $values, $key ) {
-			return false;
+			return sprintf( '%s - %s x %s', $key, $values['width'], $values['height'] );
 		}
 	}
 }

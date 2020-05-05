@@ -2,19 +2,17 @@
 
 namespace WPOnion\DB\Query_Types;
 
-use WPOnion\Helper;
-
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
+if ( ! class_exists( '\WPOnion\DB\Query_Types\User_Roles' ) ) {
 	/**
-	 * Class Currency_Symbol
+	 * Class User_Roles
 	 *
 	 * @package WPOnion\DB\Query_Types
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 * @since 1.4.5.4
 	 */
-	class Currency_Symbol extends WP_Query_Base {
+	class User_Roles extends WP_Query_Base {
 		/**
 		 * @var bool
 		 */
@@ -37,7 +35,8 @@ if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
 		 * @return array
 		 */
 		public function get_results( $query_args ) {
-			return Helper::get_currency_symbol();
+			global $wp_roles;
+			return $wp_roles->get_names();
 		}
 
 		/**
@@ -51,8 +50,8 @@ if ( ! class_exists( '\WPOnion\DB\Query_Types\Currency_Symbol' ) ) {
 		}
 
 		/**
-		 * @param array|object $values WP Query Result.
-		 * @param array|object $key WP Query Result key.
+		 * @param string|array|object $values WP Query Result.
+		 * @param array|object        $key WP Query Result key.
 		 *
 		 * @return string
 		 */
