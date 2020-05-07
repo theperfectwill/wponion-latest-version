@@ -12,9 +12,10 @@
 
 namespace Varunsridharan\WordPress\WP_Conditional_Logic\Validator;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+use WP_Post;
+
+defined( 'ABSPATH' ) || exit;
+
 if ( ! trait_exists( '\Varunsridharan\WordPress\WP_Conditional_Logic\Validator\Post' ) ) {
 	/**
 	 * Trait Post
@@ -58,7 +59,7 @@ if ( ! trait_exists( '\Varunsridharan\WordPress\WP_Conditional_Logic\Validator\P
 		 */
 		public function post_name() {
 			global $post;
-			return ( $post instanceof \WP_Post ) ? $post->post_name : false;
+			return ( $post instanceof WP_Post ) ? $post->post_name : false;
 		}
 
 		/**

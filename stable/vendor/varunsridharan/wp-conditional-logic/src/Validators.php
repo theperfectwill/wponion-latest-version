@@ -3,26 +3,12 @@
  * Simple WordPress Library To Evaluate / Handle Conditional Logic.
  *
  * @author Varun Sridharan <varunsridharan23@gmail.com>
- * @version 1.0
- * @since 1.0
- * @link
- * @copyright 2019 Varun Sridharan
  * @license GPLV3 Or Greater (https://www.gnu.org/licenses/gpl-3.0.txt)
  */
 
 namespace Varunsridharan\WordPress\WP_Conditional_Logic;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
-require_once __DIR__ . '/validator/trait-users.php';
-require_once __DIR__ . '/validator/trait-request.php';
-require_once __DIR__ . '/validator/trait-hooks.php';
-require_once __DIR__ . '/validator/trait-admin.php';
-require_once __DIR__ . '/validator/trait-post.php';
-require_once __DIR__ . '/validator/trait-theme.php';
-require_once __DIR__ . '/class-compare.php';
+defined( 'ABSPATH' ) || exit;
 
 use Varunsridharan\WordPress\WP_Conditional_Logic\Rules\Rule;
 use Varunsridharan\WordPress\WP_Conditional_Logic\Validator\Requests;
@@ -61,7 +47,7 @@ if ( ! class_exists( '\Varunsridharan\WordPress\WP_Conditional_Logic\Validators'
 		 *
 		 * @param \Varunsridharan\WordPress\WP_Conditional_Logic\Rules\Rule $instance
 		 */
-		public function __construct( Rule &$instance ) {
+		public function __construct( Rule $instance ) {
 			$this->rule = $instance;
 		}
 

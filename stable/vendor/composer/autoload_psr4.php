@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Varunsridharan\\WordPress\\' => array($vendorDir . '/varunsridharan/wp-conditional-logic/src'),
+    'Varunsridharan\\WordPress\\WP_Conditional_Logic\\' => array($vendorDir . '/varunsridharan/wp-conditional-logic/src'),
     'Varunsridharan\\PHP\\' => array($vendorDir . '/varunsridharan/php-autoloader/src'),
 );
