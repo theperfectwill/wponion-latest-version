@@ -51,10 +51,10 @@ if ( ! class_exists( '\WPOnion\Bridge\Module_DB' ) ) {
 		/**
 		 * Stores Current Post ID
 		 *
-		 * @var null
+		 * @var bool
 		 * @access
 		 */
-		protected $post_id = null;
+		protected $post_id = false;
 
 		/**
 		 * Stores Current Term ID.
@@ -77,8 +77,57 @@ if ( ! class_exists( '\WPOnion\Bridge\Module_DB' ) ) {
 		 */
 		public function get_db_values() {
 			if ( empty( $this->db_values ) ) {
+				/**
+				 * Fires Action With Exact Unique Key Before Fetching Values From Database
+				 *
+				 * @param string      $unique unique ID Which used to store in Database.
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				do_action( "wponion/{$this->module()}/get/before", $this->unique(), $this->get_id() );
+
+				/**
+				 * Fires Action With Exact Unique Key Before Fetching Values From Database
+				 *
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				do_action( "wponion/{$this->module()}/{$this->unique()}/get/before", $this->get_id() );
+
 				$instance        = new Get( $this->option( 'save_type' ), $this );
 				$this->db_values = $instance->run();
+
+				/**
+				 * Provides End Develoeprs An Option To Hook And Modify Values Before Saving in DB.
+				 *
+				 * @param array       $values Values To Be Stored in Database.
+				 * @param string      $unique unique ID Which used to store in Database.
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				$this->db_values = apply_filters( "wponion/{$this->module()}/get/values", $this->db_values, $this->unique(), $this->get_id() );
+
+				/**
+				 * Provides End Develoeprs An Option To Hook And Modify Values Before Saving in DB.
+				 *
+				 * @param array       $values Values To Be Stored in Database.
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				$this->db_values = apply_filters( "wponion/{$this->module()}/{$this->unique()}/get/values", $this->db_values, $this->get_id() );
+
+				/**
+				 * Fires Action With Exact Unique Key After Fetching Values From Database
+				 *
+				 * @param array       $values Values Stored in Database.
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				do_action( "wponion/{$this->module()}/{$this->unique()}/get/after", $this->db_values, $this->get_id() );
+
+				/**
+				 * Fires Action With Exact Unique Key After Fetching Values From Database
+				 *
+				 * @param array       $values Values Stored in Database.
+				 * @param string      $unique unique ID Which used to store in Database.
+				 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+				 */
+				do_action( "wponion/{$this->module()}/get/after", $this->db_values, $this->unique(), $this->get_id() );
 			}
 			return $this->db_values;
 		}
@@ -89,10 +138,74 @@ if ( ! class_exists( '\WPOnion\Bridge\Module_DB' ) ) {
 		 * @return $this
 		 */
 		public function set_db_values( $values = array() ) {
-			do_action( "wponion_{$this->module()}_db_save_before", $values, $this->unique(), $this );
+			wponion_do_deprecated_action( "wponion_{$this->module()}_db_save_before", array(
+				$values,
+				$this->unique(),
+				$this,
+			), '1.4.6.1', "wponion/{$this->module()}/save/before" );
+
+			/**
+			 * Fires a Common Action After Saving Values In DB
+			 *
+			 * @param array       $values Values Stored in Database.
+			 * @param string      $unique unique ID Which used to store in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			do_action( "wponion/{$this->module()}/save/before", $values, $this->unique(), $this->get_id() );
+
+			/**
+			 * Fires Action With Exact Unique Key Before Saving Values In DB
+			 *
+			 * @param array       $values Values Stored in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			do_action( "wponion/{$this->module()}/{$this->unique()}/save/before", $values, $this->get_id() );
+
+			/**
+			 * Provides End Develoeprs An Option To Hook And Modify Values Before Saving in DB.
+			 *
+			 * @param array       $values Values To Be Stored in Database.
+			 * @param string      $unique unique ID Which used to store in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			$values = apply_filters( "wponion/{$this->module()}/save/values", $values, $this->unique(), $this->get_id() );
+
+			/**
+			 * Provides End Develoeprs An Option To Hook And Modify Values Before Saving in DB.
+			 *
+			 * @param array       $values Values To Be Stored in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			$values = apply_filters( "wponion/{$this->module()}/{$this->unique()}/save/values", $values, $this->get_id() );
+
 			$instance = new Save( $this->option( 'save_type' ), $values, $this );
 			$instance->run();
-			do_action( "wponion_{$this->module()}_db_save_after", $values, $this->unique(), $this );
+
+			wponion_do_deprecated_action( "wponion_{$this->module()}_db_save_after", array(
+				$values,
+				$this->unique(),
+				$this,
+			), '1.4.6.1', "wponion/{$this->module()}/save/after" );
+
+			/**
+			 * Fires Action With Exact Unique Key After Saving Values In DB
+			 * Fires a Common Action After Saving Values In DB
+			 *
+			 * @param array       $values Values Stored in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			do_action( "wponion/{$this->module()}/{$this->unique()}/save/after", $values, $this->get_id() );
+
+			/**
+			 * Fires Action With Exact Unique Key After Saving Values In DB
+			 * Fires a Common Action After Saving Values In DB
+			 *
+			 * @param array       $values Values Stored in Database.
+			 * @param string      $unique unique ID Which used to store in Database.
+			 * @param string|bool $get_id Provides a valid ID if its any of (post_meta,term_meta)
+			 */
+			do_action( "wponion/{$this->module()}/save/after", $values, $this->unique(), $this->get_id() );
+
 			if ( wpo_is_option( $this->db_values ) ) {
 				$this->db_values->reload();
 			} else {

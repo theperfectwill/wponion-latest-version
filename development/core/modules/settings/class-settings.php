@@ -115,7 +115,7 @@ if ( ! class_exists( '\WPOnion\Modules\Settings\Settings' ) ) {
 		 * Loads Required Style for the current settings page.
 		 */
 		public function load_admin_styles() {
-			do_action( 'wponion_settings_page_assets', $this->unique() );
+			do_action( 'wponion/settings/page/assets', $this->unique() );
 		}
 
 		/**
@@ -146,7 +146,7 @@ if ( ! class_exists( '\WPOnion\Modules\Settings\Settings' ) ) {
 							}
 						}
 					}
-					do_action( 'wponion_settings_register_submenu', $menu['menu_slug'], $this->unique(), $this );
+					do_action( 'wponion/settings/register/submenu', $menu['menu_slug'], $this->unique(), $this );
 				}
 			}
 		}
@@ -304,7 +304,7 @@ if ( ! class_exists( '\WPOnion\Modules\Settings\Settings' ) ) {
 			}
 
 			$this->init_theme();
-			do_action( 'wponion_settings_page_onload', $this->unique() );
+			do_action( 'wponion/settings/page/on_load', $this->unique() );
 		}
 
 		/**

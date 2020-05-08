@@ -129,7 +129,7 @@ if ( ! class_exists( '\WPOnion\Field' ) ) {
 				$this->add_action( 'admin_enqueue_scripts', 'field_assets', 1 );
 				$this->add_action( 'customize_controls_enqueue_scripts', 'field_assets', 99999 );
 				$this->add_action( 'wp_enqueue_scripts', 'field_assets', 1 );
-				$this->add_action( 'wponion_ajax_enqueue_scripts', 'field_assets', 10 );
+				$this->add_action( 'wponion/ajax/enqueue_assets', 'field_assets', 10 );
 			}
 
 			$this->init_subfields();
@@ -498,7 +498,7 @@ if ( ! class_exists( '\WPOnion\Field' ) ) {
 				$return['fieldset'] = 'wpo-col-xs-12 wpo-col-sm-12 wpo-col-md-12 wpo-col-lg-12 wpo-col-xl-12';
 			}
 
-			return apply_filters( 'wponion_field_column_css_class', $return, $this->module(), $this );
+			return apply_filters( 'wponion/default/field/column/css_class', $return, $this->module(), $this );
 		}
 
 		/**
@@ -773,7 +773,8 @@ if ( ! class_exists( '\WPOnion\Field' ) ) {
 		 * @return string
 		 */
 		protected function element_class( $field_class = '' ) {
-			return apply_filters( 'wponion_' . $this->module() . '_field_html_class', wponion_html_class( $this->data( 'class' ), $field_class, false ) );
+			$element_class = wponion_apply_deprecated_filters( 'wponion_' . $this->module() . '_field_html_class', array( wponion_html_class( $this->data( 'class' ), $field_class, false ) ), '1.4.6.1' );
+			return apply_filters( "wponion/{$this->module()}/field/html/class", $element_class, $this );
 		}
 
 		/**

@@ -142,7 +142,7 @@ if ( ! class_exists( '\WPOnion\Assets' ) ) {
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'register_assets' ), 1 );
 			add_action( 'load-customize.php', array( __CLASS__, 'register_assets' ), 1 );
 			add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_assets' ), 1 );
-			add_action( 'wponion_ajax_enqueue_scripts', array( __CLASS__, 'register_assets' ), 1 );
+			add_action( 'wponion/ajax/enqueue_assets', array( __CLASS__, 'register_assets' ), 1 );
 		}
 
 		/**
@@ -151,7 +151,7 @@ if ( ! class_exists( '\WPOnion\Assets' ) ) {
 		 * @static
 		 */
 		public static function register_assets() {
-			do_action( 'wponion_register_assets_before' );
+			do_action( 'wponion/assets/register/before' );
 			wponion_localize();
 
 			if ( is_version_lte( 'wordpress', '5.0' ) ) { //phpcs:ignore WordPress.WP.CapitalPDangit.Misspelled
@@ -164,7 +164,7 @@ if ( ! class_exists( '\WPOnion\Assets' ) ) {
 			self::handle_assets( 'script', self::$scripts );
 			self::handle_assets( 'style', self::$styles );
 
-			do_action( 'wponion_register_assets_after' );
+			do_action( 'wponion/assets/register/after' );
 		}
 
 		/**
