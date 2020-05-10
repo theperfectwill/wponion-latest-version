@@ -62,7 +62,7 @@ if ( ! trait_exists( '\WPOnion\Traits\Class_Options' ) ) {
 		protected function parse_args( $new = array(), $defaults = array() ) {
 			$new      = ( ! is_array( $new ) ) ? array() : $new;
 			$defaults = ( ! is_array( $defaults ) ) ? array() : $defaults;
-			return wp_parse_args( $new, $defaults );
+			return wponion_parse_args( $new, $defaults );
 		}
 
 		/**
@@ -86,11 +86,43 @@ if ( ! trait_exists( '\WPOnion\Traits\Class_Options' ) ) {
 		 *
 		 * @return mixed
 		 */
-		public function get_option( $key, $default = false ) {
-			if ( true === $key ) {
-				return $this->settings;
+		protected function get_option( $key, $default = false ) {
+			wponion_deprecated_function( __METHOD__, '1.4.6.1', 'option' );
+			return $this->option( $key, $default );
+		}
+
+		/**
+		 * Removes A Value From Stored Options.
+		 *
+		 * @param $key
+		 *
+		 * @return $this
+		 * @since {NEWVERSION}
+		 */
+		protected function remove_option( $key ) {
+			if ( is_string( $key ) ) {
+				Helper::array_key_unset( $key, $this->settings, $this->array_key_delimiter );
 			}
-			return Helper::array_key_get( $key, $this->settings, $default, $this->array_key_delimiter );
+
+			if ( is_array( $key ) ) {
+				foreach ( $key as $id ) {
+					$this->remove_option( $id );
+				}
+			}
+
+			return $this;
+		}
+
+		/**
+		 * Checks if internal options has given key.
+		 *
+		 * @param $key
+		 *
+		 * @return bool
+		 * @since {NEWVERSION}
+		 */
+		protected function has_option( $key ) {
+			return Helper::array_key_isset( $key, $this->settings, $this->array_key_delimiter );
 		}
 
 		/**
@@ -101,8 +133,8 @@ if ( ! trait_exists( '\WPOnion\Traits\Class_Options' ) ) {
 		 *
 		 * @return mixed
 		 */
-		public function option( $key, $default = false ) {
-			return $this->get_option( $key, $default );
+		public function option( $key = null, $default = false ) {
+			return ( empty( $key ) ) ? $this->settings : Helper::array_key_get( $key, $this->settings, $default, $this->array_key_delimiter );
 		}
 	}
 }

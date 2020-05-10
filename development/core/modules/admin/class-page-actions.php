@@ -1,21 +1,19 @@
 <?php
 
-namespace WPOnion\Modules\Util;
+namespace WPOnion\Modules\Admin;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
+if ( ! class_exists( '\WPOnion\Modules\Admin\Page_Actions' ) ) {
 	/**
 	 * Class Page_Actions
 	 *
-	 * @package WPOnion\Modules\Util
+	 * @package WPOnion\Modules\Admin
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
-	 * @since 1.0
 	 */
 	class Page_Actions {
 		/**
 		 * @var array
-		 * @access
 		 * @static
 		 */
 		protected static $output = array();
@@ -24,7 +22,6 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 		 * Stores Button Informations.
 		 *
 		 * @var array
-		 * @access
 		 * @static
 		 */
 		protected static $post_types = array();
@@ -33,7 +30,6 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 		 * Stores Button Informations.
 		 *
 		 * @var array
-		 * @access
 		 * @static
 		 */
 		protected static $screen_ids = array();
@@ -42,7 +38,6 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 		 * Stores Button Informations.
 		 *
 		 * @var array
-		 * @access
 		 * @static
 		 */
 		protected static $taxonomy = array();
@@ -50,6 +45,7 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 		/**
 		 * Inits Class.
 		 *
+		 * @uses validate_current_post_type
 		 * @static
 		 */
 		public static function init() {
@@ -81,6 +77,7 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 
 			if ( ! empty( self::$output ) ) {
 				wponion_localize()->add( 'wponion_page_actions', implode( ' ', self::$output ) );
+				wponion_load_core_assets();
 			}
 		}
 
@@ -116,7 +113,6 @@ if ( ! class_exists( '\WPOnion\Modules\Util\Page_Actions' ) ) {
 						}
 						self::$output[] = $button;
 					} else {
-						//var_dump( $buttons );
 						self::generate_buttons( $buttons );
 					}
 				}
