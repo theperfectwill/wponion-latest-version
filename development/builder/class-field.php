@@ -152,7 +152,7 @@ if ( ! class_exists( 'WPO\Field' ) ) {
 			}
 
 			$args = wponion_is_array( $args ) ? $args : array();
-			$args = $this->parse_args( $args, array(
+			$args = wponion_parse_args( $args, array(
 				'type'  => $type,
 				'id'    => $id,
 				'title' => $title,
@@ -165,7 +165,7 @@ if ( ! class_exists( 'WPO\Field' ) ) {
 			$this->unique = null;
 
 			if ( ! isset( $this['id'] ) || isset( $this['id'] ) && empty( $this['id'] ) ) {
-				$this->unique = wponion_hash_string( $this->unique . wponion_hash_array( $args ) );
+				$this->unique = wponion_hash_string( $this->unique . wponion_hash_array( $args ) . microtime( true ) );
 			} elseif ( isset( $this['id'] ) ) {
 				$this->unique = $this['id'];
 			}

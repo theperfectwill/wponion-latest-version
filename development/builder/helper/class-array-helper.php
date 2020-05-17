@@ -23,7 +23,7 @@ if ( ! class_exists( 'WPO\Helper\Array_Helper' ) ) {
 		use Array_Position;
 		use Array_Iterator;
 		use Array_Access {
-			offsetGet as offsetGet_Parent;
+			offsetGet as protected offsetGet_parent;
 		}
 
 		/**
@@ -31,9 +31,19 @@ if ( ! class_exists( 'WPO\Helper\Array_Helper' ) ) {
 		 *
 		 * @return mixed
 		 */
-		public function offsetGet( $offset ) {
-			$defaults = $this->defaults();
-			return ( ! $this->offsetExists( $offset ) && Helper::array_key_isset( $offset, $defaults ) ) ? Helper::array_key_get( $offset, $defaults ) : $this->offsetGet_Parent( $offset );
+		public function &offsetGet( $offset ) {
+			$return = false;
+			if ( false !== strpos( $offset, '/' ) ) {
+				$return = $this->offsetGet_parent( $offset );
+			} else {
+				$defaults = $this->defaults();
+				if ( $this->offsetExists( $offset ) ) {
+					$return = &$this->{$this->array_var}[ $offset ];
+				} elseif ( isset( $defaults[ $offset ] ) ) {
+					$return = $defaults[ $offset ];
+				}
+			}
+			return $return;
 		}
 	}
 }
