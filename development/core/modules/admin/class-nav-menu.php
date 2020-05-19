@@ -1,20 +1,18 @@
 <?php
 
-namespace WPOnion\Modules;
+namespace WPOnion\Modules\Admin;
 
-use WPO\Builder;
 use WPOnion\Bridge\Module;
 use WPOnion\DB\Data_Validator_Sanitizer;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\Modules\Nav_Menu' ) ) {
+if ( ! class_exists( '\WPOnion\Modules\Admin\Nav_Menu' ) ) {
 	/**
 	 * Class Nav_Menu
 	 *
 	 * @package WPOnion\Modules
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
-	 * @since 1.0
 	 */
 	class Nav_Menu extends Module {
 		/**
@@ -31,25 +29,14 @@ if ( ! class_exists( '\WPOnion\Modules\Nav_Menu' ) ) {
 		public $post_id = false;
 
 		/**
-		 * Nav_Menu constructor.
-		 *
-		 * @param array             $settings
-		 * @param \WPO\Builder|null $fields
-		 */
-		public function __construct( $settings = array(), Builder $fields = null ) {
-			parent::__construct( $fields, $settings );
-			if ( defined( 'DOING_AJAX' ) && true === DOING_AJAX ) {
-				$this->on_page_load();
-			} else {
-				$this->init();
-			}
-		}
-
-		/**
 		 * On Class Init.
 		 */
 		public function on_init() {
-			$this->add_action( 'load-nav-menus.php', 'on_page_load' );
+			if ( wponion_is_ajax() ) {
+				$this->on_page_load();
+			} else {
+				$this->add_action( 'load-nav-menus.php', 'on_page_load' );
+			}
 		}
 
 		/**
@@ -138,10 +125,7 @@ if ( ! class_exists( '\WPOnion\Modules\Nav_Menu' ) ) {
 		 * @return array
 		 */
 		protected function defaults() {
-			return $this->parse_args( array(
-				'theme' => 'wp_modern',
-				parent::defaults(),
-			) );
+			return $this->parse_args( array( 'theme' => 'wp' ), parent::defaults() );
 		}
 	}
 }

@@ -1,20 +1,19 @@
 <?php
 
-namespace WPOnion\Modules;
+namespace WPOnion\Modules\Admin;
 
-use WPO\Builder;
 use WPOnion\Bridge\Module;
 use WPOnion\DB\Data_Validator_Sanitizer;
+use WPOnion\Modules\Metabox\Core;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\Modules\Taxonomy' ) ) {
+if ( ! class_exists( '\WPOnion\Modules\Admin\Taxonomy' ) ) {
 	/**
 	 * Class Taxonomy
 	 *
-	 * @package WPOnion\Modules
+	 * @package WPOnion\Modules\Admin
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
-	 * @since 1.0
 	 */
 	class Taxonomy extends Module {
 		/**
@@ -37,17 +36,6 @@ if ( ! class_exists( '\WPOnion\Modules\Taxonomy' ) ) {
 		 * @var \WPOnion\Modules\Metabox\metabox
 		 */
 		public $metabox_instance = false;
-
-		/**
-		 * Taxonomy constructor.
-		 *
-		 * @param \WPO\Builder|null $fields
-		 * @param array             $settings
-		 */
-		public function __construct( $settings = array(), Builder $fields = null ) {
-			parent::__construct( $fields, $settings );
-			$this->init();
-		}
 
 		/**
 		 * Runs In Instance Init.
@@ -102,7 +90,7 @@ if ( ! class_exists( '\WPOnion\Modules\Taxonomy' ) ) {
 				$metabox['get_db_values'] = array( $this, 'get_db_values' );
 				$metabox['set_db_values'] = array( $this, 'set_db_values' );
 				$metabox['module']        = $this->module();
-				$this->metabox_instance   = new Metabox\Core( $metabox, $this->raw_fields );
+				$this->metabox_instance   = new Core( $metabox, $this->fields );
 			}
 		}
 
