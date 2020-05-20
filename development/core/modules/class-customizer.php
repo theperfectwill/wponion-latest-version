@@ -12,7 +12,6 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 	 *
 	 * @package WPOnion\Modules
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
-	 * @since 1.0
 	 */
 	class Customizer extends Module {
 		/**
@@ -44,6 +43,17 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 		protected $outers = array();
 
 		/**
+		 * Inits Module.
+		 */
+		public function on_init() {
+			if ( is_customize_preview() ) {
+				$this->init_fields();
+			}
+			$this->add_action( 'customize_register', 'customize_register' );
+			$this->add_action( 'customize_controls_enqueue_scripts', 'load_styles' );
+		}
+
+		/**
 		 * Renders / Creates An First Instance based on the $is_init_field variable value.
 		 *
 		 * @param array|\WPO\Field    $field
@@ -72,7 +82,7 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 			 * @var \WPO\Container $options
 			 * @var \WPO\Container $section
 			 */
-			foreach ( $this->fields->get() as $options ) {
+			foreach ( $this->fields()->get() as $options ) {
 				if ( $options->has_callback() ) {
 					continue;
 				}
@@ -90,30 +100,6 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 						$this->render_field( $field, $options, false );
 					}
 				}
-			}
-		}
-
-		/**
-		 * customizer constructor.
-		 *
-		 * @param array              $settings
-		 * @param array|\WPO\Builder $fields
-		 */
-		public function __construct( $settings = array(), $fields = array() ) {
-			parent::__construct( $fields, $settings );
-			$this->init();
-		}
-
-		/**
-		 * Inits the current instance.
-		 */
-		public function init() {
-			if ( ! empty( $this->fields ) ) {
-				if ( is_customize_preview() ) {
-					$this->init_fields();
-				}
-				$this->add_action( 'customize_register', 'customize_register' );
-				$this->add_action( 'customize_controls_enqueue_scripts', 'load_styles' );
 			}
 		}
 
@@ -137,7 +123,7 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 			/**
 			 * @var \WPO\Container $page
 			 */
-			foreach ( $this->fields->get() as $page ) {
+			foreach ( $this->fields()->get() as $page ) {
 				if ( $page->has_containers() ) {
 					$this->register_section( $page->containers(), $this->panels( $page, true ) );
 				} elseif ( $page->has_fields() ) {
@@ -229,9 +215,6 @@ if ( ! class_exists( '\WPOnion\Modules\Customizer' ) ) {
 			if ( ! empty( $css ) ) {
 				echo '<style>' . esc_attr( $css ) . '</style>';
 			}
-		}
-
-		public function on_init() {
 		}
 	}
 }
