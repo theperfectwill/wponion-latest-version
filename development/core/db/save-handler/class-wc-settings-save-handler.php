@@ -1,17 +1,17 @@
 <?php
 
-namespace WPOnion\DB;
+namespace WPOnion\DB\Save_Handler;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPOnion\DB\Settings_Save_Handler' ) ) {
+if ( ! class_exists( '\WPOnion\DB\Save_Handler\WC_Settings' ) ) {
 	/**
-	 * Class Save_Handler
+	 * Class WC_Settings
 	 *
-	 * @package WPOnion\DB\Settings
+	 * @package WPOnion\DB\Save_Handler
 	 * @author Varun Sridharan <varunsridharan23@gmail.com>
 	 */
-	class Settings_Save_Handler extends Data_Validator_Sanitizer {
+	class WC_Settings extends Base {
 		/**
 		 * Runs custom loop to work with Settings fields array.
 		 */
@@ -21,19 +21,17 @@ if ( ! class_exists( '\WPOnion\DB\Settings_Save_Handler' ) ) {
 			 * @var \WPO\Container                     $container
 			 * @var \WPO\Container                     $sub_container
 			 */
-			$settings = $this->module();
-
 			if ( $this->fields->has_fields() ) {
 				$this->field_loop( $this->fields );
 			} else {
 				foreach ( $this->fields->get() as $container ) {
-					if ( ! $settings->valid_container( $container, false, true ) ) {
+					if ( ! empty( $this->args['current_tab'] ) && $container->name() !== $this->args['current_tab'] ) {
 						continue;
 					}
 
 					if ( $container->has_containers() ) {
 						foreach ( $container->containers() as $sub_container ) {
-							if ( ! $settings->valid_container( $sub_container, true, true ) ) {
+							if ( ! empty( $this->args['current_section'] ) && $sub_container->name() !== $this->args['current_section'] ) {
 								continue;
 							}
 
@@ -47,9 +45,7 @@ if ( ! class_exists( '\WPOnion\DB\Settings_Save_Handler' ) ) {
 						$this->field_loop( $container );
 					}
 				}
-				if ( false === $settings->is_single_page() || 'only_submenu' === $settings->is_single_page() ) {
-					$this->return_values = $this->array_merge( $this->return_values, $this->db_values );
-				}
+				$this->return_values = $this->array_merge( $this->return_values, $this->db_values );
 			}
 		}
 

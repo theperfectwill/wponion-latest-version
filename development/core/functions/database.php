@@ -1,9 +1,52 @@
 <?php
 
-use WPOnion\DB\Options;
+use WPOnion\Registry\Options;
 use WPOnion\DB\Query;
+use WPOnion\DB\WP_DB;
 
 defined( 'ABSPATH' ) || exit;
+
+if ( ! function_exists( 'wponion_module_db_type' ) ) {
+	/**
+	 * Converts Module Type into save type.
+	 *
+	 * @param $module
+	 *
+	 * @return mixed|void
+	 * @since {NEWVERSION}
+	 */
+	function wponion_module_db_type( $module ) {
+		$return = 'options';
+		switch ( $module ) {
+			case 'dashboard_widgets':
+				$return = ( wponion_is_network( true ) ) ? 'network_options' : 'options';
+				break;
+			case 'settings':
+			case 'wc_settings':
+				$return = 'options';
+				break;
+			case 'network_settings':
+			case 'network_dashboard_widgets':
+				$return = 'network_options';
+				break;
+			case 'post_meta':
+			case 'wc_product':
+			case 'metabox':
+			case 'nav_menu':
+			case 'media_fields':
+				$return = 'post';
+				break;
+			case 'taxonomy':
+			case 'term':
+				$return = 'term';
+				break;
+			case 'user_profile':
+				$return = 'user';
+				break;
+		}
+		return apply_filters( 'wponion/module_db_type', $return, $module );
+	}
+}
 
 if ( ! function_exists( 'wponion_query_module' ) ) {
 	/**
@@ -88,7 +131,8 @@ if ( ! function_exists( 'wponion_wp_db' ) ) {
 	 * @return bool|\WPOnion\DB\WP_DB
 	 */
 	function wponion_wp_db() {
-		return wponion_registry( '\WPOnion\DB\WP_DB', 'wponion-global-wp-db-api' );
+		$instance = wponion_core_registry( 'wpdb-api' );
+		return ( ! wponion_is_instance( $instance, 'wpdb' ) ) ? wponion_core_registry( new WP_DB(), 'wpdb-api' ) : $instance;
 	}
 }
 
