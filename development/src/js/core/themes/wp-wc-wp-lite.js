@@ -58,6 +58,8 @@ export default class WP_WC_WP_Lite extends WPOnion_Theme_Base {
 				} else if( false === $elem.hasClass( 'disabled' ) ) {
 					//window.location.href = $elem.attr( 'href' );
 				}
+
+				window.wponion_change_url_no_reload( $elem.text(), $elem.attr( 'href' ) );
 			}
 		} );
 	}
@@ -85,6 +87,7 @@ export default class WP_WC_WP_Lite extends WPOnion_Theme_Base {
 								$base_lookup.find( '.wponion-submenus a.current' ).removeClass( 'current' );
 								$elem.addClass( 'current' );
 								$found = true;
+								window.wponion_change_url_no_reload( $elem.text(), $elem.attr( 'href' ) );
 								this.hide_element_non_ui( $lookup );
 							}
 						}
@@ -142,9 +145,19 @@ export default class WP_WC_WP_Lite extends WPOnion_Theme_Base {
 
 	/**
 	 * @param $container
+	 * @return {boolean|boolean}
+	 */
+	has_only_uifields( $container ) {
+		let $element    = $container.find( '.wponion-element' ).length;
+		let $ui_element = $container.find( '.wponion-ui-field' ).length;
+		return ( $element === $ui_element || $element === 0 && $ui_element > 0 );
+	}
+
+	/**
+	 * @param $container
 	 */
 	hide_element_non_ui( $container ) {
-		if( WPOnion_Theme_Base.has_only_uifields( $container ) ) {
+		if( this.has_only_uifields( $container ) ) {
 			this.element.find( '.action-buttons' ).hide();
 			this.element.find( 'footer' ).hide();
 			this.element.find( 'button.wponion-save' ).hide();
