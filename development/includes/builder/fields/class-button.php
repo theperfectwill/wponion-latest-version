@@ -6,44 +6,39 @@ use WPO\Field;
 
 defined( 'ABSPATH' ) || exit;
 
-if ( ! class_exists( '\WPO\Fields\Button' ) ) {
+/**
+ * Class Button
+ *
+ * @package WPO\Field
+ * @author Varun Sridharan <varunsridharan23@gmail.com>
+ */
+class Button extends Field {
 	/**
-	 * Class Button
+	 * Button constructor.
 	 *
-	 * @package WPO\Field
-	 * @author Varun Sridharan <varunsridharan23@gmail.com>
-	 * @since 1.0
+	 * @param bool  $id
+	 * @param bool  $title
+	 * @param array $args
 	 */
-	class Button extends Field {
-		/**
-		 * Button constructor.
-		 *
-		 * @param bool  $id
-		 * @param bool  $title
-		 * @param array $args
-		 */
-		public function __construct( $id = false, $title = false, $args = array() ) {
-			parent::__construct( 'button', $id, $title, $args );
-		}
+	public function __construct( $id = false, $title = false, $args = array() ) {
+		parent::__construct( 'button', $id, $title, $args );
+	}
 
-		/**
-		 * @param string $button_type - Possible Values (button,submit,reset)
-		 *
-		 * @return $this
-		 */
-		public function button_type( $button_type = 'button' ) {
-			$this['button_type'] = $button_type;
-			return $this;
-		}
+	/**
+	 * @param string $button_type - Possible Values (button,submit,reset)
+	 *
+	 * @return $this
+	 */
+	public function button_type( $button_type = 'button' ) {
+		return $this->__set( 'button_type', $button_type );
+	}
 
-		/**
-		 * @param $label
-		 *
-		 * @return $this
-		 */
-		public function label( $label ) {
-			$this['label'] = $label;
-			return $this;
-		}
+	/**
+	 * @param $label
+	 *
+	 * @return $this
+	 */
+	public function label( $label ) {
+		return $this->__set( 'label', $label );
 	}
 }
