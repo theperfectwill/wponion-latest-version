@@ -36,9 +36,9 @@ abstract class Field extends Wrapper {
 			$this->module      = ( isset( $unique['module'] ) ) ? $unique['module'] : false;
 		}
 
+		$this->set_args( $field );
 		$this->_handle_arguments();
 		$this->get_errors();
-		$this->set_args( $field );
 
 		if ( wponion_is_defined( 'WPONION_FIELD_ASSETS', true ) || true === $this->is_assets_actions_fired() ) {
 			$this->assets();
@@ -76,16 +76,9 @@ abstract class Field extends Wrapper {
 	}
 
 	/**
-	 * This function Returns Global Default Field Args.
-	 *
-	 * @return array
-	 */
-	protected function base_defaults() {
-		return array();
-	}
-
-	/**
 	 * Generates Final HTML output of the current field.
+	 *
+	 * @return string
 	 */
 	public function final_output() {
 		$only_field      = $this->is_only_field();
@@ -98,9 +91,9 @@ abstract class Field extends Wrapper {
 		}
 
 		if ( $only_field ) {
-			echo $this->field_html();
+			$html = $this->field_html();
 		} else {
-			$this->wrapper();
+			$html = $this->wrapper();
 		}
 
 		if ( $this->has( 'debug' ) ) {
@@ -117,6 +110,7 @@ abstract class Field extends Wrapper {
 		if ( wponion_is_callable( $after_render ) ) {
 			wponion_callback( $after_render, $render_callback );
 		}
+		return $html;
 	}
 
 	/**
@@ -129,7 +123,7 @@ abstract class Field extends Wrapper {
 
 		$wrap_attr = wponion_array_to_html_attributes( $this->_wrap_attributes() );
 
-		echo <<<HTML
+		return <<<HTML
 <div ${wrap_attr}>
 	{$this->badge()}
 	<div class="wpo-row">
@@ -152,9 +146,7 @@ HTML;
 	 * @since {NEWVERSION}
 	 */
 	protected function field_html() {
-		wponion_catch_output( true );
-		echo $this->output();
-		return wponion_catch_output( false );
+		return $this->output();
 	}
 
 	/**
