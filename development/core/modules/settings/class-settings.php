@@ -211,8 +211,7 @@ class Settings extends Module {
 		echo '<input type="hidden" name="container-id" value="' . $this->active( true ) . '"/>';
 		echo '<input type="hidden" name="sub-container-id" value="' . $this->active( false ) . '"/>';
 		echo '</div>';
-		$instance = $this->init_theme();
-		$instance->render_settings();
+		$this->init_theme()->render();
 		echo '</form>';
 
 		if ( false !== $this->option( 'ajax' ) ) {
@@ -489,15 +488,19 @@ class Settings extends Module {
 	 * @return string
 	 */
 	public function settings_button() {
-		$options = $this->option( 'save_button' );
-		$html    = '';
-		if ( false !== $options ) {
-			$html .= $this->_button( $options, array(
-				'class' => 'button button-primary wponion-save',
-				'type'  => 'submit',
-			), __( 'Save Settings', 'wponion' ) );
+		if ( false === $this->option( 'save_button_html' ) ) {
+			$options = $this->option( 'save_button' );
+			$html    = '';
+			if ( false !== $options ) {
+				$html .= $this->_button( $options, array(
+					'class' => 'button button-primary wponion-save',
+					'type'  => 'submit',
+				), __( 'Save Settings', 'wponion' ) );
+			}
+			$this->set_option( 'save_button_html', $html );
+			return $html;
 		}
-		return $html;
+		return $this->option( 'save_button_html' );
 	}
 
 	/**

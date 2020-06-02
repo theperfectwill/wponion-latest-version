@@ -1,8 +1,10 @@
 <?php
 defined( 'ABSPATH' ) || exit;
 
-/* @var \WPOnion\Theme\WP_Modern $this */
-$dashboard_widgets = $this->dashboard_widgets();
+/**
+ * @var \WPOnion\Theme\WP_Modern $this
+ */
+$dashboard_widgets = $this->module_instance();
 $fields            = $dashboard_widgets->fields();
 ?>
 
