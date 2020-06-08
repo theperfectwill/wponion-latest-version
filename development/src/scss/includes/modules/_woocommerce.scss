@@ -1,0 +1,50 @@
+#woocommerce-product-data {
+	.woocommerce_options_panel {
+		> .wponion-wc_product {
+			> .wpo-row {
+				margin: 0;
+
+				label {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+
+	// Style Fixes.
+	.wponion-desc {
+		float:   left;
+		width:   100%;
+		padding: 0;
+	}
+
+	// Chosen Select
+	.chosen-search {
+		float: left;
+	}
+
+	.ui-accordion .ui-accordion-content {
+		padding: 0 0 5px;
+	}
+}
+
+.wponion-woocommerce-variation.wponion-wc_product {
+	display: block;
+	width:   100%;
+	float:   left;
+
+	> .wpo-row {
+		> .wponion-element {
+			border:  none;
+			padding: 8px;
+			@include wponion_field_horizontal();
+		}
+	}
+}
+
+.wponion-woocommerce_settings {
+	> .wpo-row {
+		margin-left:  -12px;
+		margin-right: -12px;
+	}
+}

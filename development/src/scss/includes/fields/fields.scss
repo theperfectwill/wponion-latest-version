@@ -1,0 +1,142 @@
+// Field Validation
+p.wponion-error {
+	color:  #dc3232;
+	margin: 2px 0 5px;
+}
+
+input.wponion-error, textarea.wponion-error, select.wponion-error {
+	border-color: #dc3232;
+	background:   #ffebe8;
+}
+
+.wponion-sub-container-wraps.wpo-row, .wponion-container-wraps.wpo-row {
+	&.hidden {
+		display: none;
+	}
+}
+
+// Basic WPonion Element Style
+.wponion-element {
+	padding: $element_gurtter;
+
+	// Border Top If More Than 1 Element
+	+ .wponion-element {
+		border-top: $element_border;
+	}
+
+	&.wponion-search-matched {
+		width:      100% !important;
+		max-width:  100% !important;
+		flex-basis: 100% !important;
+	}
+
+	&.hidden {
+		display: none;
+	}
+
+	.wponion-desc {
+		margin-bottom: 0;
+		font-size:     13px;
+		font-style:    italic;
+		color:         #666;
+		margin-top:    10px;
+
+		+ .wponion-desc {
+			margin-top: 5px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	.wpo-row {
+		> .wponion-element-title {
+
+			@include wponion_respond_to('xs', 'sm') {
+				margin-bottom: $element_gurtter;
+			}
+
+			h4 {
+				font-size: 14px;
+				display:   inline-block;
+				margin:    0 5px 0 0;
+			}
+		}
+
+		> .wponion-fieldset {
+			.wponion-field-errors {
+				display: block;
+				color:   red;
+			}
+		}
+	}
+
+	&.horizontal {
+		@include wponion_field_horizontal();
+	}
+
+	.wponion-developer-timer {
+		margin:     0;
+		display:    inline-block;
+		width:      auto;
+		font-size:  smaller;
+		text-align: center;
+		padding:    0 8px;
+	}
+}
+
+@import "badge";
+
+/*============================ OLD STYLE BELOW =====================*/
+
+@import "text/core";
+@import "textarea/core";
+@import "checkbox_radio/core";
+
+@import "select/core";
+@import "switcher/core";
+@import "button_set/core";
+@import "cloner/core";
+@import "sorter/core";
+@import "input_group/core";
+@import "key_value/core";
+@import "fieldset/core";
+@import "accordion/core";
+@import "group/core";
+@import "image/core";
+@import "gallery/core";
+@import "oembed/core";
+@import 'color_picker/core';
+@import "icon_picker/core";
+@import "font_picker/core";
+@import "date_picker/core";
+@import "image_select/core";
+@import "background/core";
+@import "spacing/core";
+@import "upload/core";
+@import "tabs/core";
+@import "notice/core";
+@import "heading/core";
+@import "jambo_content/core";
+@import "typography/core";
+@import "color_group/core";
+@import "content/core";
+@import "divider/core";
+@import "faq/core";
+@import "metabox/core";
+@import "sysinfo/core";
+@import "modal/core";
+@import "import-export/core";
+@import "spinner/core";
+@import "range-slider/core";
+@import "code_editor/core";
+@import "options_object/core";
+@import "wp-editor/core";
+@import "visual-editor/core";
+@import "css_shadow/core";
+@import "css-unit/core";
