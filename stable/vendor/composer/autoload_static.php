@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2b8503f1a08a5d36356f1a38d9510778
+class ComposerStaticInit4fd303d3ed3b34c336ae1b4d5d422bc1
 {
     public static $files = array (
         'eba23924a915eda61344d946053e1609' => __DIR__ . '/..' . '/varunsridharan/wp-conditional-logic/src/functions.php',
@@ -35,8 +35,8 @@ class ComposerStaticInit2b8503f1a08a5d36356f1a38d9510778
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2b8503f1a08a5d36356f1a38d9510778::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2b8503f1a08a5d36356f1a38d9510778::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4fd303d3ed3b34c336ae1b4d5d422bc1::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4fd303d3ed3b34c336ae1b4d5d422bc1::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
