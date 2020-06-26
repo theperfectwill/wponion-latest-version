@@ -4,7 +4,7 @@ on:
   issue_comment:
     types: [created, deleted]
   schedule:
-    - cron: "0/15 * * * *"
+    - cron: "0 */4 * * *"
   push:
     branches:
       - master
