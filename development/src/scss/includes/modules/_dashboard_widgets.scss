@@ -1,0 +1,14 @@
+.wponion-dashboard_widgets {
+	margin-left:  -12px;
+	margin-right: -12px;
+	margin-top:   -11px;
+
+	> .wponion-element {
+		@include wponion_field_horizontal();
+
+		&:last-child {
+			margin-bottom: 15px;
+			border-bottom: $element_border;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+{
+  "name"        : "wponion/wponion",
+  "description" : "~ Lightweight, Flexible & Rapid WP Development Framework ~",
+  "license"     : "MIT",
+  "homepage"    : "https://wponion.com",
+  "authors"     : [
+    {
+      "name"     : "Varun Sridharan",
+      "email"    : "varunsridharan23@gmail.com",
+      "homepage" : "https://varunsridharan.in",
+      "role"     : "Developer"
+    }
+  ],
+  "keywords"    : [
+    "wponion-framework",
+    "wponion",
+    "wordpress",
+    "wordpress-plugin",
+    "wordpress-theme",
+    "wordpress-options-framework",
+    "wordpress-options-plugin",
+    "wordpress-options",
+    "wordpress-options-builder",
+    "wordpress-taxonomies",
+    "wordpress-metaboxes",
+    "wordpress-metabox-options",
+    "wordpress-settings",
+    "wordpress-settings-api",
+    "wordpress-php-library",
+    "wordpress-widget",
+    "wp-plugin-settings",
+    "wordpress-gutenberg",
+    "gutenberg",
+    "settings-api"
+  ],
+  "require"     : {
+    "varunsridharan/php-autoloader"       : "^2.0",
+    "varunsridharan/wp-dependencies"      : "^1.0",
+    "varunsridharan/wp-conditional-logic" : "^1.0"
+  },
+  "scripts"     : {
+    "classmaps"           : [ "classmap-generator core/,includes/ ./wponion-classmaps.php" ],
+    "makepot"             : "makepot ./wp-pot.json",
+    "add-textdomain"      : "add-textdomain -i wponion ./",
+    "update-icons"        : "php ./src/php/icon-exporter/all-icons.php",
+    "update-google-fonts" : "php ./src/php/google-fonts.php",
+    "build"               : [ "@classmaps", "@update-icons", "@update-google-fonts", "@add-textdomain", "@makepot" ],
+    "push-to-master"      : "php ./src/php/push-to-master.php"
+  },
+  "require-dev" : {
+    "varunsridharan/wp-cli-textdomain"      : "^1.1",
+    "mustangostang/spyc"                    : "*",
+    "varunsridharan/php-classmap-generator" : "*"
+  },
+  "autoload"    : {
+    "files" : [ "index.php" ]
+  },
+  "conflict"    : {
+    "wponion/dev"     : "dev-master",
+    "wponion/wponion" : "dev-development"
+  }
+}

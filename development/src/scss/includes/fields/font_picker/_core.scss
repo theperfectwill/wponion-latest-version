@@ -1,0 +1,69 @@
+.wponion-element-font_picker {
+	.wponion-font-select-container {
+		margin-right: 15px;
+		display:      inline-block;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		.select2-container {
+			width: 100% !important;
+		}
+
+		select {
+			&.wponion-variant-selector {
+				min-width: 150px;
+			}
+
+			&.wponion-font-selector {
+				min-width: 300px;
+			}
+		}
+	}
+
+}
+
+.wponion-metabox {
+	&.wponion-metabox-side {
+		.wponion-element-font_picker {
+			.wponion-font-select-container {
+				display:       block;
+				margin-right:  0;
+				margin-bottom: 15px;
+
+				select {
+					min-width: auto;
+					width:     100%;
+					max-width: 100%;
+				}
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+	}
+}
+
+.wponion-module-customizer {
+	.wponion-element-font_picker {
+		.wponion-font-select-container {
+			width:         100%;
+			flex-basis:    100%;
+			max-width:     100%;
+			margin-bottom: 15px;
+			margin-right:  0;
+
+			> select {
+				width:   100%;
+				display: block;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+.wponion-element-typography {
+	.wponion-fieldset {
+		.wponion-element {
+			border: none;
+
+			&.wponion-element-select {
+				select {
+					width: 100%;
+				}
+			}
+		}
+
+		#fontsize-and-color {
+			input {
+				width: 100px;
+			}
+		}
+
+		.previewtxt-wrap {
+			> div {
+				padding: 0 16px;
+			}
+
+			.previewtxt {
+				padding:    15px;
+				background: #f9f9f9;
+			}
+		}
+	}
+}

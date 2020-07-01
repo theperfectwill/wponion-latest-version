@@ -1,0 +1,49 @@
+.wponion-element-background {
+	> .wpo-row {
+		> .wponion-fieldset {
+			> div {
+				margin-top:    -15px;
+				margin-bottom: -15px;
+			}
+		}
+	}
+
+	.wponion-element {
+		border: none;
+	}
+}
+
+.wponion-metabox {
+	&.wponion-metabox-side {
+		.wponion-element-background {
+			.wponion-element {
+				margin-right: 0;
+				width:        100%;
+				max-width:    100%;
+				padding:      0 !important;
+
+				&.wponion-field-color_picker {
+					margin-bottom: 15px;
+				}
+
+				&.wponion-field-upload {
+					margin-bottom: 15px;
+				}
+			}
+		}
+
+	}
+}
+
+
+.wponion-module-customizer {
+	.wponion-element-background {
+		.wponion-element {
+			width:      100%;
+			flex-basis: 100%;
+			max-width:  100%;
+			@include wponion_field_horizontal();
+		}
+	}
+}
+

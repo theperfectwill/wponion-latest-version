@@ -1,0 +1,30 @@
+.wponion-element-input_group {
+	.wponion-fieldset {
+		> .wpo-row {
+			> .wponion-element {
+				border: none;
+			}
+		}
+	}
+}
+
+.wponion-module-customizer {
+	.wponion-element-input_group {
+		> .wpo-row {
+			> .wponion-fieldset {
+				> .wpo-row {
+					margin: 0;
+				}
+			}
+		}
+
+		.wponion-element {
+			width:         100%;
+			flex-basis:    100%;
+			max-width:     100% !important;
+			margin-bottom: 15px;
+			@include wponion_field_horizontal();
+		}
+	}
+}
+
