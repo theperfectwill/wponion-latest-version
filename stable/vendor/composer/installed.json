@@ -170,5 +170,6 @@
             "install-path": "../varunsridharan/wp-dependencies"
         }
     ],
-    "dev": false
+    "dev": false,
+    "dev-package-names": []
 }
