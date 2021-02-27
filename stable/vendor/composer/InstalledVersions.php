@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '9e3ed6ec4d3377cd16059056b8b3e61c938609ac',
+    'reference' => 'be8899099fe1ed4b7318a3a1516b9e44894197bb',
     'name' => 'wponion/wponion',
   ),
   'versions' => 
@@ -69,7 +69,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '9e3ed6ec4d3377cd16059056b8b3e61c938609ac',
+      'reference' => 'be8899099fe1ed4b7318a3a1516b9e44894197bb',
     ),
   ),
 );
