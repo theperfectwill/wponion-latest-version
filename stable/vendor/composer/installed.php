@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'be8899099fe1ed4b7318a3a1516b9e44894197bb',
+    'reference' => '450209083eb046d8a4cf6c9267ee838f4d3109b1',
     'name' => 'wponion/wponion',
   ),
   'versions' => 
@@ -45,7 +45,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'be8899099fe1ed4b7318a3a1516b9e44894197bb',
+      'reference' => '450209083eb046d8a4cf6c9267ee838f4d3109b1',
     ),
   ),
 );
