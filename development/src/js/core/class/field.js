@@ -67,8 +67,7 @@ export default class WPOnion_Field extends WPOnion_Field_Base {
 		if( false !== $found ) {
 			$found.find( '> .wpo-row > .wponion-field-title > h4' ).tippy( {
 				content: window.wpo_core.txt( 'click_to_view_debug_info', 'Click To View Field Debug Info' ),
-				arrow: true,
-				arrowType: 'round',
+				arrow: tippy.roundArrow,
 				placement: 'bottom',
 				theme: 'light',
 				animation: 'scale',
@@ -87,7 +86,7 @@ export default class WPOnion_Field extends WPOnion_Field_Base {
 					confirmButtonText: window.wpo_core.txt( 'get_json_output', 'As JSON' ),
 					showCloseButton: false,
 					width: '800px',
-					onOpen: () => jQuery( '#swal2-content > div > #' + $d ).jsonView( $data )
+					didOpen: () => jQuery( '#swal2-content > div > #' + $d ).jsonView( $data )
 				} ).then( ( result ) => {
 					if( result.value ) {
 						$data = JSON.stringify( $data );
