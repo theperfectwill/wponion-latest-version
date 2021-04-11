@@ -22,21 +22,21 @@
     ),
     'varunsridharan/wp-conditional-logic' => 
     array (
-      'pretty_version' => '1.2',
-      'version' => '1.2.0.0',
+      'pretty_version' => '1.3',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e0fa820b495ccce6cb6a30619ba45a774c4b56bc',
+      'reference' => '255d3e2ca935b22668a1ca58d3b855eb7d733981',
     ),
     'varunsridharan/wp-dependencies' => 
     array (
-      'pretty_version' => '1.6.1',
-      'version' => '1.6.1.0',
+      'pretty_version' => '1.6.2',
+      'version' => '1.6.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b1514529480223b8cfae5cbc33c7cc9e4ee7420b',
+      'reference' => '69cb89d618b0c30f4a1b7ee4abc2796eabe064a6',
     ),
     'wponion/wponion' => 
     array (
