@@ -706,26 +706,29 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.2.8",
+            "version": "v2.2.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "8bc234617edc533590ac0f41080164a8d85ec9ce"
+                "reference": "26e171c5708060b6d7cede9af934b946f5ec3a59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/8bc234617edc533590ac0f41080164a8d85ec9ce",
-                "reference": "8bc234617edc533590ac0f41080164a8d85ec9ce",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/26e171c5708060b6d7cede9af934b946f5ec3a59",
+                "reference": "26e171c5708060b6d7cede9af934b946f5ec3a59",
                 "shasum": ""
             },
             "require": {
                 "gettext/gettext": "^4.8",
-                "mck89/peast": "^1.8",
+                "mck89/peast": "^1.13",
                 "wp-cli/wp-cli": "^2.5"
             },
             "require-dev": {
                 "wp-cli/scaffold-command": "^1.2 || ^2",
                 "wp-cli/wp-cli-tests": "^3.0.11"
+            },
+            "suggest": {
+                "ext-mbstring": "Used for calculating include/exclude matches in code extraction"
             },
             "type": "wp-cli-package",
             "extra": {
@@ -761,9 +764,9 @@
             "homepage": "https://github.com/wp-cli/i18n-command",
             "support": {
                 "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.8"
+                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.9"
             },
-            "time": "2021-05-10T10:24:16+00:00"
+            "time": "2021-07-20T21:25:54+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
