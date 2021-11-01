@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit4dd1d2d22dc57ba8baba9f9d35bcb8d4
+class ComposerStaticInite4daa42605e10abdf2582894ef1f28b6
 {
     public static $files = array (
         '011316cc7fd7a11c4bebeb6bcdea5621' => __DIR__ . '/..' . '/varunsridharan/wp-dependencies/src/dependencies.php',
@@ -39,9 +39,9 @@ class ComposerStaticInit4dd1d2d22dc57ba8baba9f9d35bcb8d4
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit4dd1d2d22dc57ba8baba9f9d35bcb8d4::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit4dd1d2d22dc57ba8baba9f9d35bcb8d4::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit4dd1d2d22dc57ba8baba9f9d35bcb8d4::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInite4daa42605e10abdf2582894ef1f28b6::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInite4daa42605e10abdf2582894ef1f28b6::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite4daa42605e10abdf2582894ef1f28b6::$classMap;
 
         }, null, ClassLoader::class);
     }
