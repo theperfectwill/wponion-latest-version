@@ -707,21 +707,21 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.2.11",
+            "version": "v2.2.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "2688b3626440d952eeb10b43a483e151d8faf51b"
+                "reference": "3ae767d59b938e6d21b50061cc339f90895ce4fe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/2688b3626440d952eeb10b43a483e151d8faf51b",
-                "reference": "2688b3626440d952eeb10b43a483e151d8faf51b",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/3ae767d59b938e6d21b50061cc339f90895ce4fe",
+                "reference": "3ae767d59b938e6d21b50061cc339f90895ce4fe",
                 "shasum": ""
             },
             "require": {
                 "gettext/gettext": "^4.8",
-                "mck89/peast": "^1.13.9",
+                "mck89/peast": "^1.13.11",
                 "wp-cli/wp-cli": "^2.5"
             },
             "require-dev": {
@@ -765,9 +765,9 @@
             "homepage": "https://github.com/wp-cli/i18n-command",
             "support": {
                 "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.11"
+                "source": "https://github.com/wp-cli/i18n-command/tree/v2.2.12"
             },
-            "time": "2022-01-06T00:01:01+00:00"
+            "time": "2022-01-12T00:13:51+00:00"
         },
         {
             "name": "wp-cli/mustangostang-spyc",
