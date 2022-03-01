@@ -61,13 +61,13 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Varunsridharan\\WordPress\\WP_Conditional_Logic\\": "src/"
-                },
                 "files": [
                     "src/functions.php",
                     "src/WP_Conditional_Logic.php"
-                ]
+                ],
+                "psr-4": {
+                    "Varunsridharan\\WordPress\\WP_Conditional_Logic\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
