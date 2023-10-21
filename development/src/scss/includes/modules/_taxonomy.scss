@@ -1,0 +1,25 @@
+.wponion-module-taxonomy {
+	margin:    1em 0;
+	display:   inline-block;
+	width:     100%;
+	max-width: 100%;
+
+	> .wponion-element {
+		border: 0;
+
+		&:not(.wponion-ui-field) {
+			padding-left:  0;
+			padding-right: 0;
+		}
+	}
+
+	&.wponion-taxonomy-new-form {
+		> .wponion-element {
+			@include wponion_field_horizontal();
+		}
+	}
+
+	&.wponion-taxonomy-edit-form {
+	}
+
+}

@@ -1,0 +1,39 @@
+{
+  "name": "wponion",
+  "version": "1.0.0",
+  "description": "~ Lightweight, Flexible & Rapid WP Development Framework ~",
+  "main": "",
+  "scripts": {
+    "css-checkbox-lib": "gulp single --file \"src/vendor/css-checkbox-library/style.scss\" ",
+    "wponion-base.scss": "gulp single --file \"src/scss/wponion-base.scss\"",
+    "wponion-plugins.js": "gulp single --file \"src/js/wponion-plugins.js\"",
+    "wponion-core.js": "gulp single --file \"src/js/wponion-core.js\"",
+    "wponion-compile-js": "npm run wponion-plugins.js && npm run wponion-core.js",
+    "wponion-compile-css": "npm run css-checkbox-lib && npm run wponion-base.scss",
+    "postinstall": "npm run wponion-compile-js && npm run wponion-compile-css && gulp copy"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "wordpress-theme",
+    "wordpress-options-framework"
+  ],
+  "author": "varunsridharan",
+  "license": "MIT",
+  "devDependencies": {
+    "@popperjs/core": "^2.9.1",
+    "@wordpress/hooks": "^2.12.0",
+    "@wponion/dependon": "^2.0.5",
+    "@wponion/flexboxgrid2": "^1.0.2",
+    "@wponion/icons": "^1.0.3",
+    "bootstrap": "^4.5.0",
+    "css-checkbox-library": "^1.5.2",
+    "easy-gulp-tasker": "^1.0.15",
+    "jquery-serializejson": "^3.2.1",
+    "jquery-validation": "^1.19.3",
+    "sweetalert2": "^10.15.6",
+    "tippy.js": "^6.3.1",
+    "vsp-js-helper": "^1.0.32",
+    "wordpress-js-ports": "^1.0.11"
+  }
+}

@@ -1,0 +1,44 @@
+/**
+ * All variables required by WPOnion To generate styles.
+ */
+
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+$wponionThemes: () !default;
+$wponionThemes: map-merge((
+	"blue": $primary,
+	"grey": $secondary,
+	"success": $success,
+	"info": $info,
+	"warning": $warning,
+	"danger": $danger,
+	"light": $light,
+	"dark": $dark
+), $wponionThemes);
+$wpo_breakpoints: (
+  'xs':  ( max-width:  575px ),
+  'sm':  ( max-width:  767px ),
+  'md':  ( max-width:  991px ),
+  'lg':  ( max-width:  1199px ),
+  'xl':  ( min-width: 1200px ),
+) !default;
+
+$wponion_metabox_menu_color: #e14d43;
+$wponion_metabox_a_color: #fff;
+$wponion_metabox_a_bg: #26292c;
+$wponion_metabox_menu_bg_color: #32373C;
+$wponion_metabox_menu_width: 200px;
+$element_gurtter: 15px;
+$element_border_color:#ddd;
+$element_border_width:1px;
+$element_border: $element_border_width solid $element_border_color;
+$element_title_width: 275px;
+$element_title_right_margin: 25px;
+$element_fieldset_width: calc(100% - 300px); // $element_title_right_margin: 20px;

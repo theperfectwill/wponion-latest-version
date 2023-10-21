@@ -1,0 +1,73 @@
+.wponion-element-sorter {
+	.ui-sortable-placeholder {
+		height: 20px;
+		@include wponion_ui_sortable_placeholder();
+	}
+
+	ul {
+		list-style-type: none;
+		margin:          0;
+		min-height:      62px;
+
+		li {
+			margin:           10px 0;
+			padding:          10px 15px;
+			cursor:           move;
+			font-weight:      bold;
+			text-align:       center;
+			border:           1px solid #e5e5e5;
+			background-color: #fafafa;
+			transition:       border-color 0.15s;
+
+			&:hover {
+				border-color: #bbb;
+			}
+		}
+	}
+
+	.wponion-disabled, .wponion-enabled {
+		padding:          5px 15px;
+		border:           1px dashed #ddd;
+		background-color: #fff;
+	}
+
+	.wponion-modules {
+		@include wponion_respond_to('xs', 'sm') {
+			margin-bottom: $element_gurtter;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		> .wponion-element-subheading {
+			border: 1px dashed #ddd;
+
+			& + .wponion-disabled, & + .wponion-enabled {
+				border-top: none;
+			}
+		}
+	}
+
+	.wponion-disabled {
+		li {
+			transition: opacity 0.15s;
+			opacity:    0.5;
+		}
+
+		.ui-sortable-helper {
+			opacity: 1;
+		}
+	}
+}
+
+.wponion-module-customizer {
+	.wponion-element-sorter {
+		.wponion-modules {
+			width:         100%;
+			flex-basis:    100%;
+			max-width:     100%;
+			margin-bottom: 15px;
+		}
+
+	}
+}

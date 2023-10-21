@@ -1,0 +1,193 @@
+{
+    "packages": [
+        {
+            "name": "varunsridharan/php-autoloader",
+            "version": "2.6",
+            "version_normalized": "2.6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/varunsridharan/php-autoloader.git",
+                "reference": "ec9df2b2bfdf5f23c56654c22c288bbefea00ca7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/varunsridharan/php-autoloader/zipball/ec9df2b2bfdf5f23c56654c22c288bbefea00ca7",
+                "reference": "ec9df2b2bfdf5f23c56654c22c288bbefea00ca7",
+                "shasum": ""
+            },
+            "time": "2019-10-04T09:42:21+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Varunsridharan\\PHP\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Varun",
+                    "email": "varunsridharan23@gmail.com",
+                    "homepage": "https://varunsridharan.in",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Lightweight PSR-4 PHP Autoloader Class.",
+            "support": {
+                "issues": "https://github.com/varunsridharan/php-autoloader/issues",
+                "source": "https://github.com/varunsridharan/php-autoloader/tree/2.6"
+            },
+            "install-path": "../varunsridharan/php-autoloader"
+        },
+        {
+            "name": "varunsridharan/wp-conditional-logic",
+            "version": "1.3",
+            "version_normalized": "1.3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/varunsridharan/wp-conditional-logic.git",
+                "reference": "255d3e2ca935b22668a1ca58d3b855eb7d733981"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/varunsridharan/wp-conditional-logic/zipball/255d3e2ca935b22668a1ca58d3b855eb7d733981",
+                "reference": "255d3e2ca935b22668a1ca58d3b855eb7d733981",
+                "shasum": ""
+            },
+            "time": "2021-04-11T05:35:53+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions.php",
+                    "src/WP_Conditional_Logic.php"
+                ],
+                "psr-4": {
+                    "Varunsridharan\\WordPress\\WP_Conditional_Logic\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Varun Sridharan",
+                    "email": "varunsridharan23@gmail.com",
+                    "homepage": "http://varunsridharan.in",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Simple WordPress Library To Evaluate / Handle Conditional Logic.",
+            "homepage": "https://github.com/varunsridharan/wp-conditional-logic/",
+            "support": {
+                "docs": "https://github.com/varunsridharan/wp-conditional-logic/issues",
+                "email": "varunsridharan23@gmail.com",
+                "issues": "https://github.com/varunsridharan/wp-conditional-logic/issues",
+                "source": "https://github.com/varunsridharan/wp-conditional-logic/",
+                "wiki": "https://github.com/varunsridharan/wp-conditional-logic/issues"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.buymeacoffee.com/varunsridharan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../varunsridharan/wp-conditional-logic"
+        },
+        {
+            "name": "varunsridharan/wp-dependencies",
+            "version": "1.6.2",
+            "version_normalized": "1.6.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/varunsridharan/wp-dependencies.git",
+                "reference": "69cb89d618b0c30f4a1b7ee4abc2796eabe064a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/varunsridharan/wp-dependencies/zipball/69cb89d618b0c30f4a1b7ee4abc2796eabe064a6",
+                "reference": "69cb89d618b0c30f4a1b7ee4abc2796eabe064a6",
+                "shasum": ""
+            },
+            "time": "2021-04-11T07:04:40+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "./src/dependencies.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Varun Sridharan",
+                    "email": "varunsridharan23@gmail.com",
+                    "homepage": "http://varunsridharan.in",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides Function To Check if a plugin is active/inactive & function to compare versions.",
+            "homepage": "https://github.com/varunsridharan/wp-dependencies/",
+            "keywords": [
+                "dependencies",
+                "vsp-libs",
+                "wordpress",
+                "wordpress-dependencies",
+                "wordpress-development",
+                "wordpress-library",
+                "wordpress-php-library",
+                "wordpress-plugin",
+                "wordpress-plugin-development",
+                "wordpress-plugin-library",
+                "wordpress-plugins",
+                "wordpress-theme",
+                "wordpress-theme-development",
+                "wordpress-theme-library",
+                "wp",
+                "wp-addon",
+                "wp-dependencies",
+                "wp-library",
+                "wp-plugin",
+                "wp-theme"
+            ],
+            "support": {
+                "email": "varunsridharan23@gmail.com",
+                "issues": "https://github.com/varunsridharan/wp-dependencies/issues",
+                "source": "https://github.com/varunsridharan/wp-dependencies",
+                "wiki": "https://github.com/varunsridharan/wp-dependencies/wiki/"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/varunsridharan23",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.buymeacoffee.com/varunsridharan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/varunsridharan",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../varunsridharan/wp-dependencies"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}
